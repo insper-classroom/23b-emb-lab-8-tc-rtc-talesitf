@@ -226,7 +226,7 @@ static void task_oled(void *pvParameters) {
 	rtc_get_date(RTC, &current_year, &current_month, &current_day, &current_week);
 	
 	char tempo[32];
-	sprintf(tempo,"%d:%d:%d",current_hour,current_min,current_sec);
+	sprintf(tempo,"%u:%u:%u",current_hour,current_min,current_sec);
 	gfx_mono_draw_string(tempo, 0, 0, &sysfont);
 	
 	for (;;) {
@@ -260,7 +260,7 @@ static void task_oled(void *pvParameters) {
 			rtc_get_time(RTC, &current_hour, &current_min, &current_sec);
 			rtc_get_date(RTC, &current_year, &current_month, &current_day, &current_week);
 			
-			sprintf(tempo,"%d:%d:%d",current_hour,current_min,current_sec);
+			sprintf(tempo,"%u:%u:%u",current_hour,current_min,current_sec);
 			gfx_mono_draw_string(tempo, 0, 0, &sysfont);
 		}
 	}
