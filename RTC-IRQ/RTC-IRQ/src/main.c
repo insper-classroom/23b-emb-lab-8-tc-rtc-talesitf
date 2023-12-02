@@ -100,8 +100,8 @@ void RTC_init(Rtc *rtc, uint32_t id_rtc, calendar t, uint32_t irq_type) {
 	rtc_set_hour_mode(rtc, 0);
 
 	/* Configura data e hora manualmente */
-	rtc_set_date(rtc, t.year, t.month, t.day, t.week);
-	rtc_set_time(rtc, t.hour, t.minute, t.second);
+	//rtc_set_date(rtc, t.year, t.month, t.day, t.week);
+	//rtc_set_time(rtc, t.hour, t.minute, t.second);
 
 	/* Configure RTC interrupts */
 	NVIC_DisableIRQ(id_rtc);
@@ -138,7 +138,7 @@ int main(void) {
 	
     /* configura alarme do RTC para daqui 20 segundos */                                                                   
     rtc_set_date_alarm(RTC, 1, current_month, 1, current_day);                              
-    rtc_set_time_alarm(RTC, 1, current_hour, 1, current_min, 1, current_sec + 20);
+    rtc_set_time_alarm(RTC, 1, current_hour, 1, current_min, 1, current_sec + 10);
                                                                                                     
     while (1) {                                                                                     
       if(flag_rtc_alarm){                                                                                 
